@@ -1,4 +1,20 @@
+#data
+data/HF_dataset/
+data/vicocktail/
+papers/
+plans.docx
+
+
+checkpoints/*
+
+# local diagnostic tools, not part of the project
+diagnose_blank.py
+overfit_probe.py
+data/.hf
+data/Vicocktail/
+
 # Byte-compiled / optimized / DLL files
+
 __pycache__/
 *.py[codz]
 *$py.class

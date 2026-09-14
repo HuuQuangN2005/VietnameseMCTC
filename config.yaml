@@ -1,0 +1,15 @@
+training:
+  seed: 42
+  batch_size: 8
+  num_workers: 4
+  lr: 0.0003
+  weight_decay: 0.005
+  warmup_steps: 0.05
+  max_grad_norm: 5.0
+  logging_steps: 25
+  amp: true
+  min_word_frequency: 2
+
+evaluation:
+  batch_size: 8
+  num_workers: 2
