@@ -31,18 +31,10 @@ def ctc_decode(logits, input_lengths, blank_id=BLANK_ID):
     best = logits.argmax(dim=-1).cpu()
     lengths = input_lengths.detach().cpu().tolist()
 
-    return [
-        collapse(ids[:length], blank_id) for ids, length in zip(best, lengths)
-    ]
+    return [collapse(ids[:length], blank_id) for ids, length in zip(best, lengths)]
 
 
 class CTCLoss(nn.Module):
-    """Plain frame-synchronous CTC over a flat vocabulary.
-
-    Targets are the transform ids untouched, because blank already sits at
-    blank_id. MCTCWELoss has to shift its targets instead, since its blank
-    lives in a channel of its own rather than in the vocabulary.
-    """
 
     def __init__(self, blank_id=BLANK_ID):
         super().__init__()

@@ -95,12 +95,7 @@ def load_visual_pretrained(encoder, path):
     missing = [key for key in missing if not is_fresh(key)]
 
     if missing or unexpected:
-        raise ValueError(
-            f"{path} does not match the visual encoder. Check width_mult and "
-            "relu_type: the released checkpoints use PReLU, and asking for "
-            "relu_type='relu' drops every activation weight."
-            f"\n  missing={missing[:5]}\n  unexpected={unexpected[:5]}"
-        )
+        raise ValueError(f"Error: can't not load pretrain {path}")
 
     print(
         f"loaded {len(pretrained_blocks)}/{len(encoder.tcn.network)} temporal "
